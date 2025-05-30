@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订票</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(to right, #d4e7f5, #f0f8ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a3c7c;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007fff;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005ec4;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #005ec4;
+        }
+
+        .flash-message {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffdddd;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>订票</h1>
+
+        <!-- 显示 flash 消息 -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label for="name">乘客姓名：</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="pid">乘客身份证号：</label>
+            <input type="text" id="pid" name="pid" required>
+
+            <label for="fid">航班号：</label>
+            <input type="text" id="fid" name="fid" required>
+
+            <button type="submit">提交</button>
+        </form>
+
+        <a href="{{ url_for('operator_dashboard') }}">返回操作员主页</a>
+    </div>
+</body>
+</html>

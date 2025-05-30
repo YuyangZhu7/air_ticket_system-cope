@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航班信息</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>查看航班信息</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>航班号</th>
+                <th>飞机ID</th>
+                <th>目的地</th>
+                <th>已预定</th>
+                <th>剩余座位</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fid, flight in flights.items() %}
+                <tr>
+                    <td>{{ fid }}</td>
+                    <td>{{ flight.model }}</td>
+                    <td>{{ flight.departure }}</td>
+                    <td>{{ flight.booked }}</td>
+                    <td>{{ flight.available }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ url_for('operator_dashboard') }}">返回操作员主页</a>
+</body>
+</html>

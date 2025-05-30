@@ -1,0 +1,308 @@
+{
+  "CA001": {
+    "plane": "Boeing737-1",
+    "dest": "深圳",
+    "booked": 100,
+    "available": 0
+  },
+  "CA002": {
+    "plane": "Boeing737-2",
+    "dest": "重庆",
+    "booked": 101,
+    "available": 16
+  },
+  "CA003": {
+    "plane": "Boeing737-3",
+    "dest": "深圳",
+    "booked": 16,
+    "available": 96
+  },
+  "CA004": {
+    "plane": "Boeing737-4",
+    "dest": "深圳",
+    "booked": 89,
+    "available": 7
+  },
+  "CA005": {
+    "plane": "Boeing737-5",
+    "dest": "武汉",
+    "booked": 37,
+    "available": 44
+  },
+  "CA006": {
+    "plane": "Boeing737-6",
+    "dest": "重庆",
+    "booked": 79,
+    "available": 10
+  },
+  "CA007": {
+    "plane": "Boeing737-7",
+    "dest": "杭州",
+    "booked": 11,
+    "available": 108
+  },
+  "CA008": {
+    "plane": "Boeing737-8",
+    "dest": "成都",
+    "booked": 83,
+    "available": 7
+  },
+  "CA009": {
+    "plane": "Boeing737-9",
+    "dest": "广州",
+    "booked": 74,
+    "available": 13
+  },
+  "CA010": {
+    "plane": "Boeing737-10",
+    "dest": "深圳",
+    "booked": 48,
+    "available": 37
+  },
+  "CA011": {
+    "plane": "Boeing737-11",
+    "dest": "南京",
+    "booked": 62,
+    "available": 26
+  },
+  "CA012": {
+    "plane": "Boeing737-12",
+    "dest": "成都",
+    "booked": 4,
+    "available": 82
+  },
+  "CA013": {
+    "plane": "Boeing737-13",
+    "dest": "深圳",
+    "booked": 65,
+    "available": 41
+  },
+  "CA014": {
+    "plane": "Boeing737-14",
+    "dest": "广州",
+    "booked": 14,
+    "available": 87
+  },
+  "CA015": {
+    "plane": "Boeing737-15",
+    "dest": "武汉",
+    "booked": 24,
+    "available": 78
+  },
+  "CA016": {
+    "plane": "Boeing737-16",
+    "dest": "武汉",
+    "booked": 18,
+    "available": 99
+  },
+  "CA017": {
+    "plane": "Boeing737-17",
+    "dest": "上海",
+    "booked": 58,
+    "available": 57
+  },
+  "CA018": {
+    "plane": "Boeing737-18",
+    "dest": "南京",
+    "booked": 7,
+    "available": 80
+  },
+  "CA019": {
+    "plane": "Boeing737-19",
+    "dest": "上海",
+    "booked": 29,
+    "available": 53
+  },
+  "CA020": {
+    "plane": "Boeing737-20",
+    "dest": "重庆",
+    "booked": 4,
+    "available": 103
+  },
+  "C919": {
+    "plane": "Konke",
+    "dest": "xian",
+    "booked": 3,
+    "available": 98
+  },
+  "CA021": {
+    "plane": "Boeing737-21",
+    "dest": "北京",
+    "booked": 45,
+    "available": 55
+  },
+  "CA022": {
+    "plane": "Boeing737-22",
+    "dest": "西安",
+    "booked": 30,
+    "available": 70
+  },
+  "CA023": {
+    "plane": "Boeing737-23",
+    "dest": "厦门",
+    "booked": 60,
+    "available": 40
+  },
+  "CA024": {
+    "plane": "Boeing737-24",
+    "dest": "青岛",
+    "booked": 25,
+    "available": 75
+  },
+  "CA025": {
+    "plane": "Boeing737-25",
+    "dest": "长沙",
+    "booked": 40,
+    "available": 60
+  },
+  "CA026": {
+    "plane": "Boeing737-26",
+    "dest": "昆明",
+    "booked": 70,
+    "available": 30
+  },
+  "CA027": {
+    "plane": "Boeing737-27",
+    "dest": "大连",
+    "booked": 15,
+    "available": 85
+  },
+  "CA028": {
+    "plane": "Boeing737-28",
+    "dest": "天津",
+    "booked": 50,
+    "available": 50
+  },
+  "CA029": {
+    "plane": "Boeing737-29",
+    "dest": "哈尔滨",
+    "booked": 35,
+    "available": 65
+  },
+  "CA030": {
+    "plane": "Boeing737-30",
+    "dest": "沈阳",
+    "booked": 20,
+    "available": 80
+  },
+  "CA031": {
+    "plane": "Boeing737-31",
+    "dest": "乌鲁木齐",
+    "booked": 10,
+    "available": 90
+  },
+  "CA032": {
+    "plane": "Boeing737-32",
+    "dest": "兰州",
+    "booked": 55,
+    "available": 45
+  },
+  "CA033": {
+    "plane": "Boeing737-33",
+    "dest": "南宁",
+    "booked": 65,
+    "available": 35
+  },
+  "CA034": {
+    "plane": "Boeing737-34",
+    "dest": "贵阳",
+    "booked": 30,
+    "available": 70
+  },
+  "CA035": {
+    "plane": "Boeing737-35",
+    "dest": "太原",
+    "booked": 40,
+    "available": 60
+  },
+  "CA036": {
+    "plane": "Boeing737-36",
+    "dest": "石家庄",
+    "booked": 25,
+    "available": 75
+  },
+  "CA037": {
+    "plane": "Boeing737-37",
+    "dest": "长春",
+    "booked": 50,
+    "available": 50
+  },
+  "CA038": {
+    "plane": "Boeing737-38",
+    "dest": "福州",
+    "booked": 45,
+    "available": 55
+  },
+  "CA039": {
+    "plane": "Boeing737-39",
+    "dest": "南昌",
+    "booked": 35,
+    "available": 65
+  },
+  "CA040": {
+    "plane": "Boeing737-40",
+    "dest": "海口",
+    "booked": 60,
+    "available": 40
+  },
+  "CA041": {
+    "plane": "Boeing737-41",
+    "dest": "呼和浩特",
+    "booked": 20,
+    "available": 80
+  },
+  "CA042": {
+    "plane": "Boeing737-42",
+    "dest": "银川",
+    "booked": 15,
+    "available": 85
+  },
+  "CA043": {
+    "plane": "Boeing737-43",
+    "dest": "西宁",
+    "booked": 10,
+    "available": 90
+  },
+  "CA044": {
+    "plane": "Boeing737-44",
+    "dest": "拉萨",
+    "booked": 5,
+    "available": 95
+  },
+  "CA045": {
+    "plane": "Boeing737-45",
+    "dest": "三亚",
+    "booked": 70,
+    "available": 30
+  },
+  "CA046": {
+    "plane": "Boeing737-46",
+    "dest": "珠海",
+    "booked": 40,
+    "available": 60
+  },
+  "CA047": {
+    "plane": "Boeing737-47",
+    "dest": "宁波",
+    "booked": 30,
+    "available": 70
+  },
+  "CA048": {
+    "plane": "Boeing737-48",
+    "dest": "温州",
+    "booked": 25,
+    "available": 75
+  },
+  "CA049": {
+    "plane": "Boeing737-49",
+    "dest": "常州",
+    "booked": 20,
+    "available": 80
+  },
+  "CA050": {
+    "plane": "Boeing737-50",
+    "dest": "无锡",
+    "booked": 35,
+    "available": 61
+  }
+}

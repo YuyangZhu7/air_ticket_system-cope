@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑航班信息</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(to right, #d9e4f5, #f2f7fd);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            margin-top: 60px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a3c7c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007fff;
+            color: white;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            background-color: #007fff;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #005ec4;
+        }
+
+        .btn-secondary {
+            background-color: #28a745;
+            margin-left: 10px;
+        }
+
+        .flash {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 6px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #007fff;
+        }
+
+        a:hover {
+            color: #005ec4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>编辑航班信息</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="flash">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" id="flightForm">
+            <input type="hidden" name="count" id="count" value="{{ flights|length }}">
+            <table id="flightsTable">
+                <thead>
+                    <tr>
+                        <th>航班号</th>
+                        <th>机型</th>
+                        <th>出发地</th>
+                        <th>已订座</th>
+                        <th>可用座</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set index = 1 %}
+                    {% for fid, flight in flights.items() %}
+                    <tr>
+                        <td><input type="text" name="fid_{{ index }}" value="{{ fid }}"></td>
+                        <td><input type="text" name="model_{{ index }}" value="{{ flight.model }}"></td>
+                        <td><input type="text" name="departure_{{ index }}" value="{{ flight.departure }}"></td>
+                        <td><input type="number" name="booked_{{ index }}" value="{{ flight.booked }}"></td>
+                        <td><input type="number" name="available_{{ index }}" value="{{ flight.available }}"></td>
+                    </tr>
+                    {% set index = index + 1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn">保存更新</button>
+            <button type="button" class="btn btn-secondary" onclick="addRow()">新增航班</button>
+        </form>
+
+        <a href="{{ url_for('admin_dashboard') }}">← 返回管理面板</a>
+    </div>
+
+    <script>
+        let rowCount = {{ flights|length }};
+        function addRow() {
+            rowCount += 1;
+            const table = document.getElementById('flightsTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            const fields = ['fid', 'model', 'departure', 'booked', 'available'];
+            fields.forEach(field => {
+                const cell = newRow.insertCell();
+                const input = document.createElement('input');
+                input.type = field === 'booked' || field === 'available' ? 'number' : 'text';
+                input.name = `${field}_${rowCount}`;
+                cell.appendChild(input);
+            });
+
+            document.getElementById('count').value = rowCount;
+        }
+    </script>
+</body>
+</html>

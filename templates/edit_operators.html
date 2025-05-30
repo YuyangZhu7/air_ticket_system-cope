@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑操作员</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(to right, #d9e4f5, #f2f7fd);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a3c7c;
+            margin-bottom: 30px;
+        }
+
+        .operator-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .operator-row input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            flex: 1;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 12px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #d9363e;
+        }
+
+        .add-btn, button[type="submit"] {
+            background-color: #007fff;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .add-btn:hover, button[type="submit"]:hover {
+            background-color: #005ec4;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            color: #007fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #005ec4;
+        }
+
+        .flash {
+            color: green;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>编辑操作员信息</h1>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">{{ messages[0] }}</div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" id="operatorForm">
+            <div id="operatorList">
+                {% for uname, pwd in operators.items() %}
+                <div class="operator-row">
+                    <input type="text" name="username" placeholder="用户名" value="{{ uname }}">
+                    <input type="text" name="password" placeholder="密码" value="{{ pwd }}">
+                    <button type="button" class="remove-btn" onclick="removeRow(this)">✕</button>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="add-btn" onclick="addRow()">＋ 添加操作员</button>
+            <button type="submit">保存更新</button>
+        </form>
+
+        <div class="actions">
+            <a href="{{ url_for('admin_dashboard') }}">← 返回管理面板</a>
+        </div>
+    </div>
+
+    <script>
+        function addRow() {
+            const row = document.createElement('div');
+            row.className = 'operator-row';
+            row.innerHTML = `
+                <input type="text" name="username" placeholder="用户名">
+                <input type="text" name="password" placeholder="密码">
+                <button type="button" class="remove-btn" onclick="removeRow(this)">✕</button>
+            `;
+            document.getElementById('operatorList').appendChild(row);
+        }
+
+        function removeRow(btn) {
+            btn.parentNode.remove();
+        }
+    </script>
+</body>
+</html>

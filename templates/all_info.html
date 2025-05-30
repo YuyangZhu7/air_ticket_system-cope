@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航班与订票信息</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(to right, #e2efff, #f0f8ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a3c7c;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007fff;
+            color: white;
+            font-size: 18px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        s {
+            color: #ff6666;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 16px;
+            color: #007fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #005ec4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>所有航班与订票信息</h1>
+
+        <h2>航班信息</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>航班号</th>
+                    <th>飞机编号</th>
+                    <th>目的地</th>
+                    <th>已预定座位数</th>
+                    <th>可用座位数</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fid, info in flights.items() %}
+                <tr>
+                    <td>{{ fid }}</td>
+                    <td>{{ info.model }}</td>
+                    <td>{{ info.departure }}</td>
+                    <td>{{ info.booked }}</td>
+                    <td>{{ info.available }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>订票信息</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>航班号</th>
+                    <th>乘客姓名</th>
+                    <th>乘客身份证号</th>
+                    <th>座位号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fid, passengers in routes.items() %}
+                    {% for passenger in passengers %}
+                        <tr>
+                            <td>{{ fid }}</td>
+                            <td>
+                                {% if passenger.status == '退票' %}
+                                    <s>{{ passenger.name }}</s>（退票）
+                                {% else %}
+                                    {{ passenger.name }}
+                                {% endif %}
+                            </td>
+                            <td>{{ passenger.id if passenger.id else '——' }}</td>
+                            <td>{{ passenger.seat }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('operator_dashboard') }}">返回操作员面板</a>
+    </div>
+</body>
+</html>
+
